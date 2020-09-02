@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form';
-import { Component } from 'react';
 
 class Form extends Component {
+  // If not validated & has been clicked away
   renderError = ({ error, touched }) => {
     if (touched && error) {
       return <div>{error}</div>
     }
   }
 
+  // Render input field, label, and error message
   renderInput = ({ input, label, meta }) => {
     return (
       <div className='field'>
@@ -19,22 +20,22 @@ class Form extends Component {
     )
   }
 
+  // On form submit
   onSubmit = (formValues) => {
-    console.log(formValues);
+    this.props.onSubmit(formValues)
   }
 
+  // Render form
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <Field
           name='patientName'
-          type='text'
           label='Patient Name'
           component={this.renderInput}
         />
         <Field
           name='patientSpecies'
-          type='text'
           label='Patient Species'
           component={this.renderInput}
         />
@@ -44,6 +45,7 @@ class Form extends Component {
   }
 }
 
+// Form validation
 const validate = formValues => {
   const errors = {};
 

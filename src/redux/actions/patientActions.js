@@ -1,8 +1,8 @@
 import patients from '../../apis/patients'
 import {
   CREATE_PATIENT,
-  LIST_PATIENTS,
-  LIST_PATIENT,
+  FETCH_PATIENTS,
+  FETCH_PATIENT,
   EDIT_PATIENT,
   DELETE_PATIENT
 } from '../types';
@@ -13,14 +13,14 @@ export const createPatient = formValues => async dispatch => {
   dispatch({ type: CREATE_PATIENT, payload: response.data });
 }
 // GET: get all patients
-export const listAllPatients = () => async dispatch => {
+export const fetchPatients = () => async dispatch => {
   const response = await patients.get('/patients');
-  dispatch({ type: LIST_PATIENTS, payload: response.data })
+  dispatch({ type: FETCH_PATIENTS, payload: response.data })
 }
 // GET: get one patient
-export const listPatient = id => async dispatch => {
+export const fetchPatient = id => async dispatch => {
   const response = await patients.get(`/patients/${id}`);
-  dispatch({ type: LIST_PATIENT, payload: response.data });
+  dispatch({ type: FETCH_PATIENT, payload: response.data });
 }
 // PATCH: edit patient
 export const editPatient = id => async (dispatch, formValues) => {

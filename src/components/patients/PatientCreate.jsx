@@ -11,13 +11,8 @@ const PatientCreate = (props) => {
   }
 
   return (
-    <CreateWrapper>
-      <Form onSubmit={onSubmit} />
-    </CreateWrapper>
+    <Form onSubmit={onSubmit} />
   )
 }
-const CreateWrapper = styled.section`
-  margin: 1rem 2rem
-`;
 
 export default connect(null, { createPatient })(PatientCreate)

@@ -8,8 +8,9 @@ import {
 } from '../types';
 
 // POST: create new patient
-export const createPatient = formValues => async dispatch => {
-  const response = await patients.post('/patients', formValues);
+export const createPatient = formValues => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  const response = await patients.post('/patients', { ...formValues, userId });
   dispatch({ type: CREATE_PATIENT, payload: response.data });
 }
 // GET: get all patients

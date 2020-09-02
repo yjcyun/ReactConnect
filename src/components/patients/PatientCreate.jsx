@@ -1,6 +1,5 @@
 import React from 'react'
 import Form from '../Form';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { createPatient } from '../../redux/actions/patientActions';
 

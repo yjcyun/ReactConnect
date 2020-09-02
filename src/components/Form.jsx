@@ -39,6 +39,26 @@ class Form extends Component {
           label='Patient Species'
           component={this.renderInput}
         />
+        <Field
+          name='lastName'
+          label='Last Name'
+          component={this.renderInput}
+        />
+        <Field
+          name='breed'
+          label='Breed'
+          component={this.renderInput}
+        />
+        <Field
+          name='gender'
+          label='Gender'
+          component={this.renderInput}
+        />
+        <Field
+          name='dob'
+          label='DOB'
+          component={this.renderInput}
+        />
         <button type='submit'>Submit</button>
       </form>
     )

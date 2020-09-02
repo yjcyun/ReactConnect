@@ -1,15 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HiOutlinePencilAlt, HiOutlineTrash } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
 
-const PatientItem = ({ patient, currentUser}) => {
+const PatientItem = ({ patient, currentUser }) => {
 
   const renderAdmin = (patient) => {
     if (patient.userId === currentUser) {
       return (
         <div>
-          <span><HiOutlinePencilAlt /></span>
-          <span><HiOutlineTrash /></span>
+          <Link to={`/patients/${patient.id}`}>
+            <span><HiOutlinePencilAlt /></span>
+          </Link>
+          <Link to={`/patients/delete/${patient.id}`}><span><HiOutlineTrash /></span></Link>
         </div>
       )
     }
@@ -63,6 +66,7 @@ const ItemWrapper = styled.div`
     margin: 0 0.5rem;;
     border: none;
     cursor: pointer;
+    color: #000;
   }
 `
 

@@ -79,6 +79,6 @@ const validate = formValues => {
 }
 
 export default reduxForm({
-  form: 'patientCreate',
+  form: 'patientForm',
   validate
 })(Form)

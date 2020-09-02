@@ -29,13 +29,14 @@ export const fetchPatient = id => async dispatch => {
 }
 
 // PATCH: edit patient
-export const editPatient = id => async (dispatch, formValues) => {
-  const response = await patients.patch(`/patients/edit/${id}`, formValues);
+export const editPatient = (id, formValues) => async dispatch => {
+  const response = await patients.patch(`/patients/${id}`, formValues);
   dispatch({ type: EDIT_PATIENT, payload: response.data });
+  history.push('/');
 }
 
 // DELETE: delete patient
 export const deletePatient = id => async dispatch => {
-  await patients.delete(`/patients/delete/${id}`);
+  await patients.delete(`/patients/${id}`);
   dispatch({ type: DELETE_PATIENT, payload: id })
 }

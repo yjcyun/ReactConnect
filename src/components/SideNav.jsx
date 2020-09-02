@@ -34,7 +34,7 @@ const SideNav = () => {
 const SideNavWrapper = styled.aside`
   background-color: var(--main-bg-color);
   height: 100vh;
-  width: 15%;
+  width: 250px;
   color: #fff;
 `;
 
@@ -44,7 +44,7 @@ const Logo = styled.div`
 `
 
 const NavList = styled.li`
-  padding-left: 2rem;
+  padding-left: 1rem;
 
   a {
     color: #fff;

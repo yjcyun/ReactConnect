@@ -1,23 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { BsPeopleFill } from 'react-icons/bs';
+import { MdDashboard } from 'react-icons/md';
 
 const SideNav = () => {
-  const [activeItem, setActiveItem] = useState('patients');
+
+  const checkActive=(match, location) => {
+    if(!location) return false;
+    const {pathname} = location;
+    return pathname === "/";
+  }
 
   return (
     <SideNavWrapper>
       <Logo>ReactVet</Logo>
       <ul>
         <NavList>
-          <NavLink to='/' activeClassName='selected'>
-            <BsPeopleFill /> Patients
+          <NavLink to='/' activeClassName='selected' isActive={checkActive}>
+            <MdDashboard /> Dashboard
           </NavLink>
         </NavList>
         <NavList>
-          <NavLink to='/'>
-            <BsPeopleFill /> Something Else
+          <NavLink to='/patients' activeClassName='selected'>
+            <BsPeopleFill /> Patients
           </NavLink>
         </NavList>
       </ul>
@@ -38,17 +44,16 @@ const Logo = styled.div`
 `
 
 const NavList = styled.li`
-  margin: 1rem 0;
   padding-left: 2rem;
 
   a {
     color: #fff;
     text-transform: uppercase;
     padding: 1rem 0 1rem 2rem;
+    display:block;
   }
 
   .selected {
-    font-weight:bold;
     background-color:var(--second-bg-color);
     display:block;
     border-top-left-radius: 2rem;

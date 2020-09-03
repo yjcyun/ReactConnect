@@ -13,7 +13,7 @@ export const createPatient = formValues => async (dispatch, getState) => {
   const { userId } = getState().auth;
   const response = await patients.post('/patients', { ...formValues, userId });
   dispatch({ type: CREATE_PATIENT, payload: response.data });
-  history.push('/');
+  history.push('/patients');
 }
 
 // GET: get all patients
@@ -32,11 +32,12 @@ export const fetchPatient = id => async dispatch => {
 export const editPatient = (id, formValues) => async dispatch => {
   const response = await patients.patch(`/patients/${id}`, formValues);
   dispatch({ type: EDIT_PATIENT, payload: response.data });
-  history.push('/');
+  history.push('/patients');
 }
 
 // DELETE: delete patient
 export const deletePatient = id => async dispatch => {
   await patients.delete(`/patients/${id}`);
-  dispatch({ type: DELETE_PATIENT, payload: id })
+  dispatch({ type: DELETE_PATIENT, payload: id });
+  history.push('/patients')
 }

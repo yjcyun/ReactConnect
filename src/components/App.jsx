@@ -20,8 +20,8 @@ function App() {
             <Route exact path='/' component={DashboardPage} />
             <Route exact path='/patients' component={PatientPage} />
             <Route path='/patients/new' component={PatientCreate} />
-            <Route path='/patients/:id' component={PatientEdit} />
-            <Route path='/patients/:id' component={PatientDelete} />
+            <Route path='/patients/edit/:id' component={PatientEdit} />
+            <Route path='/patients/delete/:id' component={PatientDelete} />
             <Route path='/patients/:id' component={PatientShow} />
           </Switch>
         </div>

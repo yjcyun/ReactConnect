@@ -3,6 +3,7 @@
 :root {
   --main-bg-color:#273264;
   --second-bg-color:#293E8F;
+  --light-bg-color:#F5F6FC;
 }
 
 * {
@@ -29,9 +30,22 @@ li a {
 
 main {
   width: 100%;
-  background-color: #F5F6FC
+  background-color: var(--light-bg-color);
 }
 
 .content-section {
   margin: 1rem 2rem
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: none;
+  margin: 0 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
 }

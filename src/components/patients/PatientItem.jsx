@@ -9,7 +9,7 @@ const PatientItem = ({ patient, currentUser }) => {
     if (patient.userId === currentUser) {
       return (
         <div>
-          <Link to={`/patients/${patient.id}`}>
+          <Link to={`/patients/edit/${patient.id}`}>
             <span><HiOutlinePencilAlt /></span>
           </Link>
           <Link to={`/patients/delete/${patient.id}`}><span><HiOutlineTrash /></span></Link>

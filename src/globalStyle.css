@@ -39,7 +39,7 @@ main {
 .content-section {
   max-width: 1170px;
   margin: 2rem auto;
-
+  width: 90%;
 }
 
 .button {

@@ -1,8 +1,10 @@
 // Google OAuth Documentation
 // https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../redux/actions/authActions';
+import { FcGoogle } from 'react-icons/fc';
+import styled from 'styled-components';
 
 class GoogleAuth extends Component {
   componentDidMount() {
@@ -43,15 +45,15 @@ class GoogleAuth extends Component {
     if (this.props.isSignedIn === null) return null;
     else if (this.props.isSignedIn) {
       return (
-        <button onClick={this.onSignOutClick}>
-          Sign Out
-        </button>
+        <Button className='button' onClick={this.onSignOutClick}>
+          <Icon><FcGoogle /></Icon>Sign Out
+        </Button>
       )
     } else {
       return (
-        <button onClick={this.onSignInClick}>
-          Sign In with Google
-        </button>
+        <Button className='button' onClick={this.onSignInClick}>
+          <Icon><FcGoogle /></Icon>Sign In with Google
+        </Button>
       )
     }
   }
@@ -69,4 +71,14 @@ const mapStateToProps = state => {
   return { isSignedIn: state.auth.isSignedIn }
 }
 
+const Icon = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px 10px 0 0;
+  font-size: 1.5rem;
+`
+
+const Button = styled.button`
+   padding: 0rem 1rem;
+`
 export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth)

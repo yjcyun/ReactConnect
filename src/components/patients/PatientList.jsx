@@ -5,6 +5,7 @@ import { fetchPatients } from '../../redux/actions/patientActions';
 import { HiOutlinePlusCircle } from 'react-icons/hi';
 import PatientItem from './PatientItem';
 import styled from 'styled-components';
+import PatientListHeader from './PatientListHeader';
 
 class PatientList extends Component {
   componentDidMount() {
@@ -35,16 +36,7 @@ class PatientList extends Component {
     return (
       <PatientItemWrapper>
         {this.renderCreate()}
-        <PatientListHeader>
-          <HeaderBlock>ID</HeaderBlock>
-          <HeaderBlock>Patient Name</HeaderBlock>
-          <HeaderBlock>Last Name</HeaderBlock>
-          <HeaderBlock>Species</HeaderBlock>
-          <HeaderBlock>Breed</HeaderBlock>
-          <HeaderBlock>Gender</HeaderBlock>
-          <HeaderBlock>Age</HeaderBlock>
-          <HeaderBlock>Actions</HeaderBlock>
-        </PatientListHeader>
+        <PatientListHeader />
         {this.renderList()}
       </PatientItemWrapper>
     )
@@ -60,32 +52,9 @@ const mapStateToProps = state => {
   }
 }
 
-// Styling
 const PatientItemWrapper = styled.div`
   max-width:1170px;
   margin: auto;
-`
-
-const PatientListHeader = styled.div`
-  display:flex;
-  justify-content: space-between;
-  margin-bottom: 0.7rem;
-  padding: 0 1rem;
-`
-
-const HeaderBlock = styled.div`
-  text-transform: uppercase;
-  width: 10%;
-  padding-left: 1rem;
-
-  &:nth-of-type(1){
-    width: 3%;
-    padding-left: 0;
-  }
-
-  &:nth-of-type(2),&:nth-of-type(3),&:nth-of-type(5){
-    width: 19%;
-  }
 `
 
 const AddButton = styled.div`
@@ -97,12 +66,11 @@ const AddButton = styled.div`
   border-radius: 2rem;
 
   span{
-    display :inline-block;
+    display: inline-block;
     vertical-align: middle;
     margin: 5px 10px 0 0;
     font-size: 1.5rem;
   }
 `
-// End of styling
 
 export default connect(mapStateToProps, { fetchPatients })(PatientList)

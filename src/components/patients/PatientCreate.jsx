@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from '../Form';
+import PatientForm from './PatientForm';
 import { connect } from 'react-redux';
 import { createPatient } from '../../redux/actions/patientActions';
 
@@ -10,7 +10,10 @@ const PatientCreate = (props) => {
   }
 
   return (
-    <Form onSubmit={onSubmit} />
+    <>
+      <h3>Add New Patient</h3>
+      <PatientForm onSubmit={onSubmit} />
+    </>
   )
 }
 

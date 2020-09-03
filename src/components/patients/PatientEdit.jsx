@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { fetchPatient, editPatient } from '../../redux/actions/patientActions';
-import Form from '../Form';
+import PatientForm from './PatientForm';
 
 class PatientEdit extends Component {
   componentDidMount() {
@@ -21,7 +21,7 @@ class PatientEdit extends Component {
     return (
       <div>
         <h3>Edit Patient</h3>
-        <Form
+        <PatientForm
           initialValues={_.pick(this.props.patient, 'patientName', 'patientSpecies', 'lastName', 'breed', 'gender', 'dob')}
           onSubmit={this.onSubmit}
         />

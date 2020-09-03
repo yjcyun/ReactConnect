@@ -49,6 +49,8 @@ class PatientDelete extends Component {
 const Button = styled.button`
   background-color: ${props => props.delete ? 'var(--main-bg-color)' : ''};
   color: ${props => props.delete ? '#fff' : ''};
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
 `;
 
 const mapStateToProps = (state, ownProps) => {

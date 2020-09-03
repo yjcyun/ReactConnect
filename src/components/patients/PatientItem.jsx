@@ -23,10 +23,10 @@ const PatientItem = ({ patient, currentUser }) => {
       <div>{patient.id}</div>
       <div>{patient.patientName}</div>
       <div>{patient.lastName}</div>
-      <div>{patient.patientSpecies}</div>
+      <div>{patient.species}</div>
       <div>{patient.breed}</div>
       <div>{patient.gender}</div>
-      <div>{patient.dob}</div>
+      <div>{patient.age}</div>
       {renderAdmin(patient)}
     </ItemWrapper>
   )
@@ -41,6 +41,8 @@ const ItemWrapper = styled.div`
   margin: 0.3rem 0;
   border-radius:  1rem;
   box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
+  position: relative;
+  border-right: 1rem solid var(--teal-color);
 
   div {
     width: 10%;

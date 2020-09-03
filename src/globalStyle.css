@@ -3,7 +3,10 @@
 :root {
   --main-bg-color:#273264;
   --second-bg-color:#293E8F;
+  --teal-color:#56A9D3;
   --light-bg-color:#F5F6FC;
+  --grey-color:#DCDCDC;
+  --main-font: 'Poppins', sans-serif
 }
 
 * {
@@ -13,7 +16,7 @@
 }
 
 body{
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--main-font);
 }
 
 ul {
@@ -34,16 +37,16 @@ main {
 }
 
 .content-section {
-  margin: 1rem 2rem
+  max-width: 1170px;
+  margin: 2rem auto;
+
 }
 
-/* Button */
 .button {
-  padding: 0.5rem 1rem;
+  display:inline-block;
+  font-family: var(--main-font);
   border-radius: 2rem;
   border: none;
-  margin: 0 0.5rem;
-  font-family: 'Poppins', sans-serif;
   cursor: pointer;
 }
 

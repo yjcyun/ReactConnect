@@ -11,8 +11,8 @@ const PatientCreate = (props) => {
 
   return (
     <>
-      <h3>Add New Patient</h3>
-      <PatientForm onSubmit={onSubmit} />
+      <h2>Add New Patient</h2>
+      <PatientForm onSubmit={onSubmit} create />
     </>
   )
 }

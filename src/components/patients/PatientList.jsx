@@ -16,7 +16,7 @@ class PatientList extends Component {
     if (this.props.isSignedIn) {
       return (
         <Link to='/patients/new'>
-          <AddButton>
+          <AddButton className='button'>
             <span>
               <HiOutlinePlusCircle />
             </span> Add new patient
@@ -58,12 +58,10 @@ const PatientItemWrapper = styled.div`
 `
 
 const AddButton = styled.div`
-  background: var(--second-bg-color);
-  display:inline-block;
-  color: #fff;
   padding: 0.5rem 1.5rem;
   margin-bottom: 2rem;
-  border-radius: 2rem;
+  background-color: var(--main-bg-color);
+  color: #fff;
 
   span{
     display: inline-block;

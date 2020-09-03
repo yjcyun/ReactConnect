@@ -22,7 +22,7 @@ class PatientEdit extends Component {
       <div>
         <h3>Edit Patient</h3>
         <PatientForm
-          initialValues={_.pick(this.props.patient, 'patientName', 'patientSpecies', 'lastName', 'breed', 'gender', 'dob')}
+          initialValues={_.pick(this.props.patient, 'patientName', 'patientSpecies', 'lastName', 'breed', 'gender', 'age')}
           onSubmit={this.onSubmit}
         />
       </div>

@@ -79,6 +79,6 @@ const Icon = styled.span`
 `
 
 const Button = styled.button`
-   padding: 0rem 1rem;
+  padding: 0rem 1rem;
 `
 export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth)

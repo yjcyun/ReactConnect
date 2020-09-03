@@ -1,16 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const FormInput = (props) => {
-  const { label, input, meta } = props
+const FormSelect = (props) => {
+  const { label, input, meta, values } = props;
   const errorInput = meta.error && meta.touched;
 
-  return (
+  const renderOptions = ({ value, label }) => {
+    return <option key={value} value={value}>{label}</option>
+  }
 
+  return (
     <FormField>
       <Label>{label}</Label>
       <InputWrapper>
-        <Input error={errorInput} {...input} autoComplete='off' />
+        <Input error={errorInput} {...input}>
+          <option value=''>Select</option>
+          {values ? values.map(value => renderOptions(value)) : null}
+        </Input>
         {errorInput
           ? <Error>{meta.error}</Error>
           : null}
@@ -31,7 +37,7 @@ const Label = styled.label`
   justify-content: flex-end;
 `
 
-const Input = styled.input`
+const Input = styled.select`
   width: 20rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -57,4 +63,4 @@ const InputWrapper = styled.div`
   position:relative;
 `
 
-export default FormInput
+export default FormSelect

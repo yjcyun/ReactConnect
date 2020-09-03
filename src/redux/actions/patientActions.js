@@ -5,13 +5,14 @@ import {
   FETCH_PATIENTS,
   FETCH_PATIENT,
   EDIT_PATIENT,
-  DELETE_PATIENT
+  DELETE_PATIENT,
+  DEACTIVATE_PATIENT
 } from '../types';
 
 // POST: create new patient
-export const createPatient = formValues => async (dispatch, getState) => {
+export const createPatient = (formValues) => async (dispatch, getState) => {
   const { userId } = getState().auth;
-  const response = await patients.post('/patients', { ...formValues, userId });
+  const response = await patients.post('/patients', { ...formValues, status: 'active', userId });
   dispatch({ type: CREATE_PATIENT, payload: response.data });
   history.push('/patients');
 }
@@ -40,4 +41,12 @@ export const deletePatient = id => async dispatch => {
   await patients.delete(`/patients/${id}`);
   dispatch({ type: DELETE_PATIENT, payload: id });
   history.push('/patients')
+}
+
+// PATCH: deactivate patient
+export const deactivatePatient = (id) => async (dispatch, getState) => {
+  const status = getState().patients;
+  const response = await patients.patch(`/patients/${id}`, {...status, status: 'inactive' });
+  dispatch({ type: DEACTIVATE_PATIENT, payload: response.data });
+  history.push('/patients');
 }

@@ -8,6 +8,7 @@ import PatientShow from './patients/PatientShow';
 import DashboardPage from '../pages/DashboardPage';
 import SideNav from './SideNav';
 import Header from './Header';
+import PatientDeactivate from './patients/PatientDeactivate';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='/patients/new' component={PatientCreate} />
             <Route path='/patients/edit/:id' component={PatientEdit} />
             <Route path='/patients/delete/:id' component={PatientDelete} />
+            <Route path='/patients/deactivate/:id' component={PatientDeactivate} />
             <Route path='/patients/:id' component={PatientShow} />
           </Switch>
         </div>

@@ -4,6 +4,7 @@ import { newPatient, newClient } from '../../constants/newPatient';
 import FormInput from '../FormInput';
 import styled from 'styled-components';
 import FormSelect from '../FormSelect';
+import { Link } from 'react-router-dom';
 
 class PatientForm extends Component {
   // Render input field, label, and error message
@@ -59,8 +60,7 @@ class PatientForm extends Component {
           </FieldWrapper>
         </Section>
         <ButtonWrapper>
-          <Button className='button' type='button'>{this.props.create? '' : 'Deactivate'}</Button>
-          <Button className='button' type='submit'>{this.props.create? 'Submit' : 'Update'}</Button>
+          {this.props.actions}
         </ButtonWrapper>
       </FormWrapper>
     )
@@ -125,11 +125,6 @@ const ButtonWrapper = styled.div`
   justify-content: flex-end;
 `
 
-const Button = styled.button`
-  padding: 1rem 2rem;
-  color: #fff;
-  background-color: var(--main-bg-color);
-`
 
 export default reduxForm({
   form: 'patientForm',

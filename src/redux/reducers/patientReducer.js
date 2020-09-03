@@ -14,7 +14,7 @@ export const patientReducer = (state = {}, action) => {
     case FETCH_PATIENT:
       return { ...state, [action.payload.id]: action.payload };
     case CREATE_PATIENT:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state , [action.payload.id]: action.payload };
     case EDIT_PATIENT:
       return { ...state, [action.payload.id]: action.payload };
     case DELETE_PATIENT:

@@ -4,6 +4,7 @@ import { HiOutlinePencilAlt, HiOutlineTrash } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 
 const PatientItem = ({ patient, currentUser }) => {
+  const patientStatus = patient.status==='active';
 
   const renderAdmin = (patient) => {
     if (patient.userId === currentUser) {
@@ -19,7 +20,7 @@ const PatientItem = ({ patient, currentUser }) => {
   }
 
   return (
-    <ItemWrapper>
+    <ItemWrapper status={patientStatus}>
       <div>{patient.id}</div>
       <div>{patient.patientName}</div>
       <div>{patient.lastName}</div>
@@ -42,12 +43,13 @@ const ItemWrapper = styled.div`
   border-radius:  1rem;
   box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
   position: relative;
-  border-right: 1rem solid var(--teal-color);
+  border-right: ${props=>props.status?'1rem solid var(--teal-color)':'1rem solid var(--grey-color)'};
 
   div {
     width: 10%;
     border-right: 1px solid #e1e4f6;
     padding-left: 1rem;
+    color: ${props=>props.status?'#000':'lightgray'};
   }
 
   div:nth-of-type(1){
@@ -71,5 +73,6 @@ const ItemWrapper = styled.div`
     color: #000;
   }
 `
+
 
 export default PatientItem

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPatients } from '../../redux/actions/patientActions';
+import { fetchPatients } from '../../../redux/actions/patientActions';
 import { HiOutlinePlusCircle } from 'react-icons/hi';
 import PatientItem from './PatientItem';
 import styled from 'styled-components';
-import PatientListHeader from './PatientListHeader';
+import PatientListHeader from '../PatientListHeader';
 
 class PatientList extends Component {
   componentDidMount() {

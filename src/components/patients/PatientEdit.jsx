@@ -18,7 +18,7 @@ class PatientEdit extends Component {
   renderActionDeactivate = () => (
     <>
       <Link to={`/patients/deactivate/${this.props.match.params.id}`}>
-        <Button className='button' type='button'>Deactivate</Button>
+        <Button grey className='button' type='button'>Deactivate</Button>
       </Link>
       <Button className='button' type='submit'>Update</Button>
     </>
@@ -26,7 +26,7 @@ class PatientEdit extends Component {
 
   renderActionReactivate = () => (
     <>
-      <Button onClick={() => this.props.reactivatePatient(this.props.match.params.id)} className='button' type='button'>Re-activate</Button>
+      <Button onClick={() => this.props.reactivatePatient(this.props.match.params.id)} grey className='button' type='button'>Re-activate</Button>
       <Button className='button' type='submit'>Update</Button>
     </>
   )
@@ -58,7 +58,8 @@ const mapStateToProps = (state, ownProps) => {
 const Button = styled.button`
   padding: 1rem 2rem;
   color: #fff;
-  background-color: var(--main-bg-color);
+  background-color:${props=>props.grey ? 'tomato' : 'var(--main-bg-color)'};
+  margin:0 0.5rem;
 `
 
 export default connect(mapStateToProps, { fetchPatient, editPatient, reactivatePatient })(PatientEdit);

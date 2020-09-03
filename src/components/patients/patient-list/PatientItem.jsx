@@ -4,7 +4,7 @@ import { HiOutlinePencilAlt, HiOutlineTrash } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 
 const PatientItem = ({ patient, currentUser }) => {
-  const patientStatus = patient.status==='active';
+  const patientStatus = patient.status === 'active';
 
   const renderAdmin = (patient) => {
     if (patient.userId === currentUser) {
@@ -22,7 +22,7 @@ const PatientItem = ({ patient, currentUser }) => {
   return (
     <ItemWrapper status={patientStatus}>
       <div>{patient.id}</div>
-      <div>{patient.patientName}</div>
+      <Link to={`/patients/${patient.id}`} className='link'>{patient.patientName}</Link>
       <div>{patient.lastName}</div>
       <div>{patient.species}</div>
       <div>{patient.breed}</div>
@@ -43,13 +43,15 @@ const ItemWrapper = styled.div`
   border-radius:  1rem;
   box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
   position: relative;
-  border-right: ${props=>props.status?'1rem solid var(--teal-color)':'1rem solid var(--grey-color)'};
+  border-right: ${props => props.status ? '1rem solid var(--teal-color)' : '1rem solid var(--grey-color)'};
+  transition: all 0.2s;
 
-  div {
+  div, .link {
     width: 10%;
     border-right: 1px solid #e1e4f6;
     padding-left: 1rem;
-    color: ${props=>props.status?'#000':'lightgray'};
+    color: ${props => props.status ? '#000' : 'lightgray'};
+    text-decoration: none;
   }
 
   div:nth-of-type(1){
@@ -57,11 +59,11 @@ const ItemWrapper = styled.div`
     padding-left: 0.5rem;
   }
   
-  div:nth-of-type(2),div:nth-of-type(3),div:nth-of-type(5){
+  .link, div:nth-of-type(2),div:nth-of-type(4){
     width: 19%;
   }
 
-  div:nth-of-type(8) {
+  div:nth-of-type(7) {
     border-right: none;
   }
 
@@ -72,7 +74,10 @@ const ItemWrapper = styled.div`
     cursor: pointer;
     color: #000;
   }
-`
 
+  :hover {
+    transform: scale(1.05);
+  }
+`
 
 export default PatientItem

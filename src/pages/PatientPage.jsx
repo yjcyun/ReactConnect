@@ -1,5 +1,5 @@
 import React from 'react'
-import PatientList from '../components/patients/PatientList'
+import PatientList from '../components/patients/patient-list/PatientList'
 
 const PatientPage = () => {
   return (

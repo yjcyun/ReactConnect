@@ -4,7 +4,7 @@ import PatientPage from '../pages/PatientPage';
 import PatientCreate from './patients/PatientCreate';
 import PatientEdit from './patients/PatientEdit';
 import PatientDelete from './patients/PatientDelete';
-import PatientShow from './patients/PatientShow';
+import PatientShow from './patients/patient-show/PatientShow';
 import DashboardPage from '../pages/DashboardPage';
 import SideNav from './SideNav';
 import Header from './Header';

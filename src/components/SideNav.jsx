@@ -26,6 +26,11 @@ const SideNav = () => {
             <BsPeopleFill /> Patients
           </NavLink>
         </NavList>
+        <NavList>
+          <NavLink to='/calendar/' activeClassName='selected'>
+            <BsPeopleFill /> Calendar
+          </NavLink>
+        </NavList>
       </ul>
     </SideNavWrapper>
   )
